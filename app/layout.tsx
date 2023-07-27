@@ -5,7 +5,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 import { ClerkProvider } from "@clerk/nextjs";
 import { ModalProvider } from "@/providers/modal-provider";
-import prismadb from "@/lib/prismadb";
+import { ToasterProvider } from "@/providers/toast-provider";
 
 export const metadata = {
   title: "Admin Dashboard ",
@@ -22,6 +22,7 @@ export default function RootLayout({
       <html lang="en" suppressHydrationWarning={true}>
         <body className={inter.className}>
           <ModalProvider />
+          <ToasterProvider />
           {children}
         </body>
       </html>
