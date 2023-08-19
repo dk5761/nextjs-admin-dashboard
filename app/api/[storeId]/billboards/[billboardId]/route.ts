@@ -91,7 +91,7 @@ export async function PATCH(
 }
 
 export async function DELETE(
-  req: Request,
+  request: Request,
   {
     params,
   }: {
@@ -102,12 +102,6 @@ export async function DELETE(
     const { userId } = auth();
     if (!userId) {
       redirect("/sign-in");
-    }
-
-    const { name } = await req.json();
-
-    if (!name) {
-      return new NextResponse("Name is required ", { status: 400 });
     }
 
     if (!params.billboardId) {
